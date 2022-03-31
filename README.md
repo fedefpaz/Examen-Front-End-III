@@ -2,6 +2,7 @@
 
 ## Comandos para correr el proyecto
 -   Correr el proyecto localmente: "npm start".
+-   Deploy de la App: https://fedefpaz-frontend3.netlify.app/
 
 ## Temas abordados
 
