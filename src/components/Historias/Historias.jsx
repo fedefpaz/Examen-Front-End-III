@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import data from '../data.json'
+import data from '../Data/data.json'
 
 export default class Historias extends Component {
     render(){

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import data from '../data.json';
+import data from '../Data/data.json';
 import Historias from '../Historias/Historias';
 import Botones from '../Botones/Botones';
 import Historial from '../Historial/Historial';
@@ -32,16 +32,17 @@ handleClick = (element) => {
             title: "Fin",
             text: "¡Gracias por elegir tu propia aventura!",
             footer: "Prueba un camino distinto.",
-            confirmButtonText: "Comenzar",
+            confirmButtonText: "Reiniciar",
             background: "black",
             color: "white",
             confirmButtonColor: "grey"
-        })
+        });
+        historial = [];
         //alert('Fin')
         this.setState({
             contador : 0,
+            seleccionAnterior: ""
         });
-        historial = [];
     } else if(id === "A" && anterior !== "A"){
         this.setState(
             {contador: contador + 1, 
