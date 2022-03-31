@@ -1,11 +1,9 @@
-import Historias from "./components/Historias/Historias";
-import Botones from "./components/Botones/Botones"
+import Diseño from "./components/Diseño/Diseño";
 
 function App() {
   return (
     <div className="layout">
-    <Botones/>
-
+    <Diseño/>
     </div>
   );
 }

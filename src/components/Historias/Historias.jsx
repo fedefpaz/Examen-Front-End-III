@@ -5,21 +5,8 @@ export default class Historias extends Component {
     render(){
         return(
             <>
-            <p className="historia">{data[this.props.contador].historia}</p>
+            <h2 className="historia">{data[this.props.contador].historia}</h2>
             </>
         )
     }
 }
-
-
-// export default class Historia extends Component{
-//     render() {
-//         return(
-//             <>
-//             <h2 className="historia">{data[this.props.contador].historia}</h2>
-//             </>
-
-//         )
-//     }
-
-// }
