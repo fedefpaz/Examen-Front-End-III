@@ -8,70 +8,79 @@ import Swal from 'sweetalert2';
 let historial = [];
 
 export default class Diseño extends Component {
-constructor(props) {
-    super(props);
-    this.state = {
-        contador : 0,
-        seleccionAnterior : ""
-    }
-}
-
-componentDidUpdate(estadoPrevio){
-    if(estadoPrevio.contador !== this.state.contador){
-        historial.push(this.state.seleccionAnterior);
-    }
-}
-
-handleClick = (element) => {
-    const id = element.target.id;
-    const contador = this.state.contador;
-    const anterior = this.state.seleccionAnterior;
-
-    if(contador >= 7){
-        Swal.fire({
-            title: "Fin",
-            text: "¡Gracias por elegir tu propia aventura!",
-            footer: "Prueba un camino distinto.",
-            confirmButtonText: "Reiniciar",
-            background: "black",
-            color: "white",
-            confirmButtonColor: "grey"
-        });
-        historial = [];
-        //alert('Fin')
-        this.setState({
+    constructor(props) {
+        super(props);
+        this.state = {
             contador : 0,
-            seleccionAnterior: ""
-        });
-    } else if(id === "A" && anterior !== "A"){
-        this.setState(
-            {contador: contador + 1, 
-            seleccionAnterior: "A"
-        });
-    } else if(id === "A" && anterior === "A"){
-        this.setState({
-            contador: contador + 2,
-            seleccionAnterior: "A"
-        });
-    } else if(id === "B" && anterior === "A"){
-        this.setState({
-            contador: contador + 3,
-            seleccionAnterior: "B"
-        });
-    } else if(id === "B" && anterior === "B"){
-        this.setState({
-            contador: contador + 2,
-            seleccionAnterior: "B"
-        });
-    } else if(id === "B"){
-        this.setState({
-            contador: contador + 2,
-            seleccionAnterior: "B"
-        });
+            seleccionAnterior : ""
+        };
     }
-    console.log(historial);
-    console.log(contador);
-}
+
+    componentDidMount() {
+        Swal.fire({
+        title: '¡Bienvenido a tu aventura!',
+        text: 'Elige tu destino, seleccionando diferentes caminos.',
+        confirmButtonText: "Iniciar",
+        background: "black",
+        color: "white",
+        confirmButtonColor: "grey"
+        })
+    }
+
+    componentDidUpdate(estadoPrevio){
+        if(estadoPrevio.contador !== this.state.contador){
+            historial.push(this.state.seleccionAnterior);
+        }
+    }
+
+    handleClick = (element) => {
+        const id = element.target.id;
+        const contador = this.state.contador;
+        const anterior = this.state.seleccionAnterior;
+
+        if(contador >= 7){
+            Swal.fire({
+                title: "Fin",
+                text: "¡Gracias por elegir tu propia aventura!",
+                footer: "Prueba un camino distinto.",
+                confirmButtonText: "Reiniciar",
+                background: "black",
+                color: "white",
+                confirmButtonColor: "grey"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                window.location.reload();
+                }
+                });
+        } else if(id === "A" && anterior !== "A"){
+            this.setState(
+                {contador: contador + 1, 
+                seleccionAnterior: "A"
+            });
+        } else if(id === "A" && anterior === "A"){
+            this.setState({
+                contador: contador + 2,
+                seleccionAnterior: "A"
+            });
+        } else if(id === "B" && anterior === "A"){
+            this.setState({
+                contador: contador + 3,
+                seleccionAnterior: "B"
+            });
+        } else if(id === "B" && anterior === "B"){
+            this.setState({
+                contador: contador + 2,
+                seleccionAnterior: "B"
+            });
+        } else if(id === "B"){
+            this.setState({
+                contador: contador + 2,
+                seleccionAnterior: "B"
+            });
+        }
+        console.log(historial);
+        console.log(contador);
+    }
 
     render(){
         return(

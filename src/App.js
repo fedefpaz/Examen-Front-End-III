@@ -3,7 +3,7 @@ import Diseño from "./components/Diseño/Diseño";
 function App() {
   return (
     <div className="layout">
-    <Diseño/>
+      <Diseño/>
     </div>
   );
 }
