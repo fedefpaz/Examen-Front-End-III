@@ -78,8 +78,6 @@ export default class Diseño extends Component {
                 seleccionAnterior: "B"
             });
         }
-        console.log(historial);
-        console.log(contador);
     }
 
     render(){
