@@ -18,7 +18,7 @@ export default class Diseño extends Component {
 
     componentDidMount() {
         Swal.fire({
-        title: '¡Bienvenido a tu aventura!',
+        title: '¡Bienvenido/a a tu aventura!',
         text: 'Elige tu destino, seleccionando diferentes caminos.',
         confirmButtonText: "Iniciar",
         background: "black",
